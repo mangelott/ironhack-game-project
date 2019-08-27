@@ -37,6 +37,7 @@ class Game {
   }
 
   runLogic () {
+    this.char.changeDirection()
   }
 
   clear () {
