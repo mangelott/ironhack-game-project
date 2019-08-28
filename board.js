@@ -1,7 +1,7 @@
 class Board{
   constructor(game){
     this.game=game;
-    const sweet = this.game.sweet;
+    const fruit = this.game.fruit;
 
   }
 
@@ -15,6 +15,5 @@ class Board{
         context.drawImage(grass,x,y,100,100);
       }
     }
-    context.restore();
   }
 }

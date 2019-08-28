@@ -10,7 +10,7 @@ class Game {
       down:'images/char.png',
       left:'images/charLeft.png'
     } */,0,0);
-    this.sweet = new Sweet(this);
+    this.fruit = new Fruit(this);
     this.timer = 0;
     this.SPEED = 0;
     this.controls={
@@ -50,6 +50,6 @@ class Game {
     this.clear();
     this.board.paint();
     this.char.paint();
-    this.sweet.paint();
+    this.fruit.paint();
   }
 }

@@ -8,7 +8,7 @@ class Character {
     this.image.src="images/char.png";
     this.score=0;
     this.direction = ""
-    this.SPEED = 3
+    this.SPEED = 5
   }
 
   changeDirection(){
@@ -23,34 +23,39 @@ class Character {
     }
   }
 
+  placeFruit(){
+    this.fruit=new Fruit();
+    this.score++;
+    this.SPEED+=3;
+  }
+
   moveLeft(){
-    if(this.x!==0 ?this.x-=this.SPEED:this.z);
-    console.log("Moving Left"+this.x);
     this.image.src='images/charLeft.png';
     this.direction = "left";
+    if(this.x==0?this.x:this.x-=this.SPEED);
   }
   moveUp(){
-    if(this.y!==0?this.y-=this.SPEED:this.y);
-    console.log("Moving up"+this.y);
     this.image.src='images/charUp.png';
     this.direction = "up";
+    if(this.y!==0?this.y-=this.SPEED:this.y);
   }
   moveRight(){
-    if(this.x+50<=850?this.x+=this.SPEED:this.x);
-    console.log("Moving right"+this.x);
     this.image.src='images/charRight.png'
     this.direction = "right";
-  }
+    if(this.x+50<=850?this.x+=this.SPEED:this.x);
+    }
+  
   moveDown(){
-    if(this.y+50<850?this.y+=this.SPEED:this.y);
     this.image.src='images/charDown.png'
-    console.log("Moving down"+this.y);
     this.direction = "down";
+    if(this.y+50<850?this.y+=this.SPEED:this.y);
   }  
   
   paint () {
     const context = this.game.context;
     context.save(); 
+    console.log(`Moving ${this.direction}: ${this.x} | ${this.y}`);
+    if(this.x+50==this.game.fruit.x&& this.y+50==this.game.fruit.y?this.game.fruit.setRandomPosition():console.log("Searching"));
     context.drawImage(this.image,this.x,this.y,100,100); 
     context.restore();
   }
