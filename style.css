@@ -1,3 +1,52 @@
 canvas{
-  background-color: darkgray;
+  background-color: white;
+}
+
+body {
+  padding: 0;
+  text-align: center;
+}
+
+body button {
+  font-size: 30px;
+  background-color:#ffbf00;
+  color: #fff;
+  padding: 20px 40px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+h1{
+  width: 500px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-shadow: 9px 6px 8px #ffbf00;
+  font-size: 30px;
+  /* background-color:#ffbf00; */
+  color: black;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.game-intro {
+  width: 500px;
+  float: left;
+  padding: 0% 10%;
+}
+
+.game-intro p {
+  font-size: 20px;
+  font-family: "Verdana"
+}
+
+.logo-img {
+  width: 350px;
+}
+
+.arrows-img {
+  width: 150px;
+}
+
+#game-board {
+    float: left;
+    padding: 20px 0px;
 }

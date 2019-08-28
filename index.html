@@ -8,13 +8,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas width="900" height="900"></canvas>
-  <script src="obs.js"></script>
-  <script src="fruit.js"></script>
-  <script src="control.js"></script>
-  <script src="char.js"></script>
-  <script src="board.js"></script>
-  <script src="main.js"></script>
-  <script src="game.js"></script>
+  <div class="game-intro">
+    <div class="game-name"><h1>Johnny, the <i>"Bravo's"</i>fruiter</h1></div>
+    <img src="images/home.png" width="500" heigth="300" alt="" class="">
+    <br>
+    <button id="start-button">Start!</button>
+    <p>Use your keyboard arrows to control Johnny Bravo!</p>
+    <img src="images/arrows.png" alt="" class="arrows-img">
+  </div>
+  <div id="game-board">
+    <canvas width="900" height="900"></canvas>
+    <script src="obs.js"></script>
+    <script src="fruit.js"></script>
+    <script src="control.js"></script>
+    <script src="char.js"></script>
+    <script src="board.js"></script>
+    <script src="main.js"></script>
+    <script src="game.js"></script>
+  </div>
 </body>
 </html>

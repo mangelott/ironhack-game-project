@@ -20,7 +20,7 @@ class Fruit{
     context.drawImage(swt,400,385,550,600,this.x+25,this.y+25,150,150); 
     console.log(`TREASURE:${this.x}|${this.y}`);
     context.restore();
-    
+    colision.x
     colision.beginPath();
     colision.globalAlpha=0.5;
     colision.arc(50, 50, 50, 0, Math.PI*2, true);
