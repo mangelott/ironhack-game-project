@@ -3,15 +3,17 @@ class Game {
     this.canvas = canvas;
     this.context = canvas.getContext('2d');
     this.board = new Board(this);
-    this.scorePane=new Score(this);
+    this.scorePane = new Score(this);
     this.char = new Character(this, 0, 0);
     this.fruit = new Fruit(this);
     this.obstacles = [];
     this.timer = 0;
     this.SPEED = 0;
     this.fruits = 0;
+    this.gameStatus = "play";
     this.control = new Control(this);
     this.control.setKeyBindings();
+    this.intro = document.getElementById('game-intro');
     this.controls = {
       up: () => this.char.moveUp(),
       right: () => this.char.moveRight(),
@@ -19,7 +21,7 @@ class Game {
       left: () => this.char.moveLeft()
     };
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 30; i++) {
       const obstacle = new Obs(this);
       this.obstacles.push(obstacle);
     }
@@ -30,26 +32,32 @@ class Game {
   }
 
   loop(timestamp) {
-    if (this.timer < timestamp - this.SPEED) {
-      this.runLogic();
-      this.paint();
-      this.timer = timestamp;
+    if (this.gameStatus === "play") {
+      if (this.timer < timestamp - this.SPEED) {
+        this.runLogic();
+        this.paint();
+        this.timer = timestamp;
+      }
+      if (this.gameStatus === "game-over") {
+        this.endGame()
+      }
     }
     window.requestAnimationFrame((timestamp) => this.loop(timestamp));
   }
 
-  loose(){
-    (this.fruits===0?this.endGame():this.fruits--);
+  loose() {
+    (this.fruits === 0 ? this.gameStatus = "game-over" : this.fruits--);
 
   }
 
-  endGame(){
-    console.log("GAME OVER");
-    // this.board.paintOver();
+  endGame() {
+    console.log("GAME OVER", this.gameStatus);
+    this.canvas.classList.add('hide');
+    this.intro.classList.remove('hide');
   }
 
   eatFruit() {
-    this.fruits ++;
+    this.fruits++;
     this.fruit.setRandomPosition();
     console.log(this.fruits);
   }
@@ -73,5 +81,5 @@ class Game {
     }
     this.char.paint();
     this.fruit.paint();
-  }
+  } 
 }

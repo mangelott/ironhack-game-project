@@ -67,13 +67,13 @@ class Character {
   moveRight() {
     this.image.src = 'images/charRight.png'
     this.direction = "right";
-    if (this.x + 50 <= 850 ? this.x += this.SPEED : this.x);
+    if (this.x + 50 <= 1250 ? this.x += this.SPEED : this.x);
   }
 
   moveDown() {
     this.image.src = 'images/charDown.png'
     this.direction = "down";
-    if (this.y + 50 < 850 ? this.y += this.SPEED : this.y);
+    if (this.y + 50 < 845 ? this.y += this.SPEED : this.y);
   }
 
   paint() {

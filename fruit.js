@@ -7,7 +7,7 @@ class Fruit {
   }
 
   setRandomPosition() {
-    this.x = (Math.floor(Math.random() * 9) * 100);
+    this.x = (Math.floor(Math.random() * 13) * 100);
     this.y = (Math.floor(Math.random() * 9) * 100);
   }
 
