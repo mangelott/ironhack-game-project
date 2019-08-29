@@ -8,6 +8,6 @@ class Score{
     context.save();
     context.fillStyle = "black";
     context.font = "30px Verdana";
-    context.fillText(`Fruits: ${this.game.fruits}`, 1150, 930);
+    context.fillText(`Fruits: ${this.game.fruits}`, 1150, 730);
   }
 }

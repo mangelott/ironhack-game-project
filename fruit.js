@@ -8,7 +8,16 @@ class Fruit {
 
   setRandomPosition() {
     this.x = (Math.floor(Math.random() * 13) * 100);
-    this.y = (Math.floor(Math.random() * 9) * 100);
+    this.y = (Math.floor(Math.random() * 7) * 100);
+  }
+
+  paintSpecial(){
+    const context = this.game.context;
+    const bn = new Image();
+    bn.src = "images/banana.png";
+    context.save();
+    context.drawImage(bn,this.x+25,this.y+25,35,35);
+    context.restore();
   }
 
   paint() {

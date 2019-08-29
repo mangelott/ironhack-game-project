@@ -1,6 +1,6 @@
 
 window.onload = function() {
-  document.getElementById("start-button").onclick = function() {
+ // document.getElementById("start-button").onclick = function() {
     const $canvas = document.querySelector('canvas');
     const intro= document.getElementById('game-intro')
     const game = new Game($canvas);
@@ -8,6 +8,6 @@ window.onload = function() {
     $canvas.classList.remove('hide');
     intro.classList.add('hide');
     game.start();
-  }
+  //}
 }
 

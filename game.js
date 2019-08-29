@@ -6,6 +6,7 @@ class Game {
     this.scorePane = new Score(this);
     this.char = new Character(this, 0, 0);
     this.fruit = new Fruit(this);
+    this.special=new Fruit(this);
     this.obstacles = [];
     this.timer = 0;
     this.SPEED = 0;
@@ -21,7 +22,7 @@ class Game {
       left: () => this.char.moveLeft()
     };
 
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 20; i++) {
       const obstacle = new Obs(this);
       this.obstacles.push(obstacle);
     }
@@ -59,8 +60,28 @@ class Game {
   eatFruit() {
     this.fruits++;
     this.fruit.setRandomPosition();
-    console.log(this.fruits);
+    this.special.setRandomPosition();
+    // this.checkScore();
   }
+
+  eatSpecial() {
+    this.char.SPEED+=2;
+    this.fruits+=3;
+    this.special.setRandomPosition();
+    // this.checkScore();
+  }
+
+  
+
+  /* checkScore(){
+    if(this.fruits%2===0){
+      console.log("BAMM");
+      this.special.paintSpecial();
+    }
+    else{
+      console.log("not yet")
+    }
+  } */
 
   runLogic() {
     this.char.walk()
@@ -77,9 +98,18 @@ class Game {
     this.scorePane.paint();
     this.board.paint();
     for (let obstacle of this.obstacles) {
+      if(obstacle.x==this.fruit.x&&obstacle.y==this.fruit.y){
+        this.fruit.setRandomPosition();
+      }
+      else if(obstacle.x==this.special.x&&obstacle.y==this.special.y){
+        this.special.setRandomPosition();
+      }
       obstacle.paint();
     }
     this.char.paint();
+    if(/* this.fruits!==0 &&  */this.fruits % 2===0){
+      this.special.paintSpecial();
+    }
     this.fruit.paint();
   } 
 }

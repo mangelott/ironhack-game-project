@@ -6,7 +6,7 @@ class Character {
     this.y = y;
     this.image = new Image();
     this.image.src = "images/char.png";
-    this.score = 0;
+    // this.score = 0;
     this.direction = ""
     this.SPEED = this.getSpeed()*5;
   }
@@ -21,15 +21,26 @@ class Character {
     } else if (this.direction === "down") {
       this.moveDown();
     }
+    
     const fruitPosition = this.game.fruit;
+    const specialPosition = this.game.special;
     const distance = 50;
     const obsDist = 50;
+    
     if (
       (this.x > fruitPosition.x - distance && this.x < fruitPosition.x + distance) &&
       (this.y > fruitPosition.y - distance && this.y < fruitPosition.y + distance)
     ) {
       this.game.eatFruit();
+    }else if(
+      (this.x > specialPosition.x - distance && this.x < specialPosition.x + distance) &&
+      (this.y > specialPosition.y - distance && this.y < specialPosition.y + distance)
+    ) {
+      this.game.eatSpecial();
+      this.score+=3;
     }
+    
+
     for (let obs of this.game.obstacles) {
       if(
         (this.x > obs.x - obsDist && this.x < obs.x + obsDist) &&
@@ -57,12 +68,12 @@ class Character {
   moveLeft() {
     this.image.src = 'images/charLeft.png';
     this.direction = "left";
-    if (this.x == 0 ? this.x : this.x -= this.SPEED);
+    if (this.x<= 0 ? this.x : this.x -= this.SPEED);
   }
   moveUp() {
     this.image.src = 'images/charUp.png';
     this.direction = "up";
-    if (this.y !== 0 ? this.y -= this.SPEED : this.y);
+    if (this.y >= 0 ? this.y -= this.SPEED : this.y);
   }
   moveRight() {
     this.image.src = 'images/charRight.png'
@@ -73,7 +84,7 @@ class Character {
   moveDown() {
     this.image.src = 'images/charDown.png'
     this.direction = "down";
-    if (this.y + 50 < 845 ? this.y += this.SPEED : this.y);
+    if (this.y + 50 < 650 ? this.y += this.SPEED : this.y);
   }
 
   paint() {
