@@ -9,15 +9,22 @@
 </head>
 <body>
   <div class="game-intro">
-    <div class="game-name"><h1>Johnny, the <i>"Bravo's"</i>fruiter</h1></div>
+    <div class="game-name"><h1> Super Johnny, the <i>"Bravo's"</i>fruiter</h1></div>
     <img src="images/home.png" width="500" heigth="300" alt="" class="">
     <br>
     <button id="start-button">Start!</button>
-    <p>Use your keyboard arrows to control Johnny Bravo!</p>
+    <p>Mother is calling for fruit!<br>Use your keyboard arrows to collect them!</p>
     <img src="images/arrows.png" alt="" class="arrows-img">
   </div>
   <div id="game-board">
-    <canvas width="900" height="900"></canvas>
+    <canvas width="900" height="950"></canvas>
+    <div id="start" class="game-overlay" style="display: none">
+      <H1>TESTE START</H1>
+    </div>
+    <div id="end" class="game-overlay" style="display: none">
+        <H1>GAME OVER</H1>
+    </div>
+    <script src="score.js"></script>
     <script src="obs.js"></script>
     <script src="fruit.js"></script>
     <script src="control.js"></script>
