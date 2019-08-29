@@ -19,7 +19,7 @@ class Game {
       left: () => this.char.moveLeft()
     };
 
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 20; i++) {
       const obstacle = new Obs(this);
       this.obstacles.push(obstacle);
     }
@@ -45,8 +45,9 @@ class Game {
 
   endGame(){
     console.log("GAME OVER");
-
+    // this.board.paintOver();
   }
+
   eatFruit() {
     this.fruits ++;
     this.fruit.setRandomPosition();

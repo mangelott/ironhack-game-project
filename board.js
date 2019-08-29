@@ -3,6 +3,15 @@ class Board{
     this.game=game;
   }
 
+  paintOver(){
+    const context = this.game.context;
+    const overImg = new Image();
+    obs.src = "images/gover.png";
+    context.save();
+    context.drawImage(obs, 500, 500, 300, 300);
+    context.restore();
+  }
+
   paint () {
     const context = this.game.context;
     const grass=new Image();

@@ -8,7 +8,7 @@ class Character {
     this.image.src = "images/char.png";
     this.score = 0;
     this.direction = ""
-    this.SPEED = 10
+    this.SPEED = this.getSpeed()*5;
   }
 
   walk() {
@@ -49,6 +49,11 @@ class Character {
     }
   }
 
+  getSpeed(){
+    const getLevel=document.getElementById("level").value;
+    return getLevel;  
+  }
+  
   moveLeft() {
     this.image.src = 'images/charLeft.png';
     this.direction = "left";

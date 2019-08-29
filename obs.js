@@ -7,16 +7,16 @@ class Obs {
   }
 
   setRandomPosition() {
-    this.x = (Math.floor(Math.random() * 9) * 100);
+    this.x = (Math.floor(Math.random() * 9) * 100)+100;
     this.y = (Math.floor(Math.random() * 9) * 100);
   }
 
-  paint() {
-    const context = this.game.context;
-    const obs = new Image();
-    obs.src = "images/tree.png";
-    context.save();
-    context.drawImage(obs, this.x, this.y, 100, 100);
-    context.restore();
-  }
+  paint() { 
+      const context = this.game.context;
+      const obs = new Image();
+      obs.src = "images/tree.png";
+      context.save();
+      context.drawImage(obs, this.x, this.y, 100, 100);
+      context.restore();
+   }
 }
