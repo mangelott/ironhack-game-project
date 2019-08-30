@@ -68,27 +68,14 @@ class Game {
     this.fruits++;
     this.fruit.setRandomPosition();
     this.special.setRandomPosition();
-    // this.checkScore();
   }
 
   eatSpecial() {
     this.char.SPEED += 2;
     this.fruits += 3;
     this.special.setRandomPosition();
-    // this.checkScore();
   }
 
-
-
-  /* checkScore(){
-    if(this.fruits%2===0){
-      console.log("BAMM");
-      this.special.paintSpecial();
-    }
-    else{
-      console.log("not yet")
-    }
-  } */
 
   runLogic() {
     this.char.walk()

@@ -6,7 +6,6 @@ class Character {
     this.y = y;
     this.image = new Image();
     this.image.src = "images/char.png";
-    // this.score = 0;
     this.direction = ""
     this.SPEED = this.getSpeed()*5;
   }
