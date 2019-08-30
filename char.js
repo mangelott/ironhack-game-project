@@ -68,23 +68,23 @@ class Character {
   moveLeft() {
     this.image.src = 'images/charLeft.png';
     this.direction = "left";
-    if (this.x<= 0 ? this.x : this.x -= this.SPEED);
+    if (this.x-this.SPEED<=0 ? this.x : this.x -= this.SPEED);
   }
   moveUp() {
     this.image.src = 'images/charUp.png';
     this.direction = "up";
-    if (this.y >= 0 ? this.y -= this.SPEED : this.y);
+    if (this.y- this.SPEED >= 0 ? this.y -= this.SPEED : this.y);
   }
   moveRight() {
     this.image.src = 'images/charRight.png'
     this.direction = "right";
-    if (this.x + 50 <= 1250 ? this.x += this.SPEED : this.x);
+    if (this.x + 50+ this.SPEED <= 1250 ? this.x += this.SPEED : this.x);
   }
 
   moveDown() {
     this.image.src = 'images/charDown.png'
     this.direction = "down";
-    if (this.y + 50 < 650 ? this.y += this.SPEED : this.y);
+    if (this.y+50+ this.SPEED < 650 ? this.y += this.SPEED : this.y);
   }
 
   paint() {

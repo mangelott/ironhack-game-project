@@ -5,6 +5,7 @@ window.onload = function () {
     const over=document.getElementById('game-over');
     const game = new Game($canvas);
     game.gameStatus = "play"
+    game.audioInit.play();
     $canvas.classList.remove('hide');
     intro.classList.add('hide');
     over.classList.add('hide');
@@ -18,7 +19,7 @@ window.onload = function () {
     const over=document.getElementById('game-over');
     // const game = new Game($canvas);
 
-    over.classList.add('hide');
+    over.style.display="none";
     intro.classList.remove('hide');
   }
 }

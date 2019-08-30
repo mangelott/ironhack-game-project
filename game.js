@@ -16,6 +16,9 @@ class Game {
     this.control.setKeyBindings();
     this.intro = document.getElementById('game-intro');
     this.over = document.getElementById('game-over');
+    this.audioInit = new Audio('sounds/Bravo is the name.mp3');
+    this.audioHit = new Audio('sounds/Holy guacamole.mp3');
+    this.audioOver = new Audio('sounds/Life is cruel.mp3');
     this.controls = {
       up: () => this.char.moveUp(),
       right: () => this.char.moveRight(),
@@ -48,14 +51,17 @@ class Game {
   }
 
   loose() {
+    this.audioHit.play();
     (this.fruits === 0 ? this.gameStatus = "game-over" : this.fruits--);
 
   }
 
   endGame() {
+    this.audioHit.pause();
     console.log("GAME OVER", this.gameStatus);
+    this.audioOver.play();
     this.canvas.classList.add('hide');
-    this.over.classList.remove('hide');
+    this.over.style.display = "flex";
   }
 
   eatFruit() {
