@@ -6,7 +6,7 @@ class Game {
     this.scorePane = new Score(this);
     this.char = new Character(this, 0, 0);
     this.fruit = new Fruit(this);
-    this.special=new Fruit(this);
+    this.special = new Fruit(this);
     this.obstacles = [];
     this.timer = 0;
     this.SPEED = 0;
@@ -15,6 +15,7 @@ class Game {
     this.control = new Control(this);
     this.control.setKeyBindings();
     this.intro = document.getElementById('game-intro');
+    this.over = document.getElementById('game-over');
     this.controls = {
       up: () => this.char.moveUp(),
       right: () => this.char.moveRight(),
@@ -54,7 +55,7 @@ class Game {
   endGame() {
     console.log("GAME OVER", this.gameStatus);
     this.canvas.classList.add('hide');
-    this.intro.classList.remove('hide');
+    this.over.classList.remove('hide');
   }
 
   eatFruit() {
@@ -65,13 +66,13 @@ class Game {
   }
 
   eatSpecial() {
-    this.char.SPEED+=2;
-    this.fruits+=3;
+    this.char.SPEED += 2;
+    this.fruits += 3;
     this.special.setRandomPosition();
     // this.checkScore();
   }
 
-  
+
 
   /* checkScore(){
     if(this.fruits%2===0){
@@ -98,18 +99,17 @@ class Game {
     this.scorePane.paint();
     this.board.paint();
     for (let obstacle of this.obstacles) {
-      if(obstacle.x==this.fruit.x&&obstacle.y==this.fruit.y){
+      if (obstacle.x == this.fruit.x && obstacle.y == this.fruit.y) {
         this.fruit.setRandomPosition();
-      }
-      else if(obstacle.x==this.special.x&&obstacle.y==this.special.y){
+      } else if (obstacle.x == this.special.x && obstacle.y == this.special.y) {
         this.special.setRandomPosition();
       }
       obstacle.paint();
     }
     this.char.paint();
-    if(/* this.fruits!==0 &&  */this.fruits % 2===0){
+    if ( /* this.fruits!==0 &&  */ this.fruits % 2 === 0) {
       this.special.paintSpecial();
     }
     this.fruit.paint();
-  } 
+  }
 }

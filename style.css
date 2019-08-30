@@ -108,3 +108,10 @@ input {
   color: white;
   border-bottom: 2px solid white;
 }
+
+.game-over{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
