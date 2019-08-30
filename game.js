@@ -113,7 +113,7 @@ class Game {
       obstacle.paint();
     }
     this.char.paint();
-    if ( /* this.fruits!==0 &&  */ this.fruits % 2 === 0) {
+    if ( this.fruits!==0 &&  this.fruits % 3 === 0) {
       this.special.paintSpecial();
     }
     this.fruit.paint();
